@@ -5,12 +5,22 @@ from .models import Buyer, Order
 class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Buyer
-        fields = '__all__'
+        fields = ['name','phone_number']
 
-class OrderSerializer(serializers.ModelSerializer):
+class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Order
-        fields = '__all__'
+        model = Buyer
+        fields = [
+            'id',
+            'created_at',
+            'updated_at',
+            'buyer_id',
+            'count',
+            'paper_type',
+            'address',
+            'price',
+        ]
+
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -27,4 +37,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+    
+    
+    # fields haro az __all__ darbiar
+    
     
