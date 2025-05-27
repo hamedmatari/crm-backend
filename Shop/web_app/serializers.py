@@ -7,7 +7,7 @@ class BuyerSerializer(serializers.ModelSerializer):
         model = Buyer
         fields = ['name','phone_number']
 
-class BuyerSerializer(serializers.ModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Buyer
         fields = [
