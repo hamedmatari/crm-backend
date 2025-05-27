@@ -5,11 +5,11 @@ from .models import Buyer, Order
 class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Buyer
-        fields = ['name','phone_number']
+        fields = ['id','name','phone_number']
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Buyer
+        model = Order
         fields = [
             'id',
             'created_at',
