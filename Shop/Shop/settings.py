@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-icdeqo6dn^gmiie@-_g=3+gu851z^^zi+=mmo5tor+y%(2@7+#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
-    
+    "corsheaders",
 ]
 
 REST_FRAMEWORK = {
@@ -64,7 +64,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True  
+
 
 ROOT_URLCONF = 'Shop.urls'
 
@@ -97,7 +101,7 @@ DATABASES = {
         'NAME': os.getenv("DB_NAME", "shopdb"),
         'USER': os.getenv("DB_USER", "shopuser"),
         'PASSWORD': os.getenv("DB_PASSWORD", "shoppass"),
-        'HOST': os.getenv("DB_HOST", "db"),  # قبلاً "localhost" بود
+        'HOST': os.getenv("DB_HOST", "db"),   
 
         'PORT': '5432',
     }
